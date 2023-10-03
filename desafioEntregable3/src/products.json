@@ -1,0 +1,92 @@
+[
+    {
+        "title": "Windsor",
+        "description": "La Windsor se basa en una de las tablas hibridas más populares de Slingshot, la Coalition, pero con modificaciones que la hacen más adecuada para cantos duros, kickers grandes y presiones más profundas.",
+        "price": 500,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4724/5-1.png&w=240",
+        "code": "235",
+        "stock": 50,
+        "id": 1
+    },
+    {
+        "title": "Salmon",
+        "description": "La Salmon es una edición especial de la firma de nuestra tabla Nomad, diseñada exclusivamente para el destripador de wake-park Victor Salmon. Victor se enamoró del contorno, la longitud y el perfil basculante del Nomad, pero no pudo evitar preguntarse cómo se sentiría con una base completamente plana, así que lo construimos para él.",
+        "price": 550,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4708/14-1.png&w=240",
+        "code": "482",
+        "stock": 30,
+        "id": 2
+    },
+    {
+        "title": "Terrain",
+        "description": "El terreno es al wind montando lo que los frijoles y el arroz son a la comida mexicana: ¡ESENCIAL! El núcleo de madera atómica laminado verticalmente da vida a cualquier tabla Slingshot bajo los pies y, combinado con el patrón de flexión ultra suave de Terrain, ¡los ciclistas se flexionarán y empujarán por el parque como un campeón! Algunos ciclistas de Slingshot han descrito el Terrain como la clave para desbloquear la presión de la nariz y la cola, llevando sus habilidades y control a un nuevo nivel en solo unas pocas sesiones cortas. Las paredes laterales extra gruesas y el perfil más ancho de la punta y la cola aumentan tanto la durabilidad de la tabla como la probabilidad de llegar al final del obstáculo.",
+        "price": 400,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4719/3-1.png&w=240",
+        "code": "963",
+        "stock": 80,
+        "id": 3
+    },
+    {
+        "title": "Contrast",
+        "description": "Las puntas flexibles cónicas y una parte inferior más rígida le dan al Contrast la combinación perfecta de rendimiento de cable y bota: tiene todo el poder pop y ollie que necesitas detrás de la bota, mientras que las puntas flexibles brindan una capacidad de presión inigualable en la lancha. Es una tabla de tallado rápido y freeride que cubre todas las bases, ¡desde el estado de principiante hasta el carro Djupsjo! La Contrast es una tabla rápida y fácil de usar construida para todos los entornos de conducción... para la chica a la que no le importan unas pocas mariposas y una pizca de brillo.",
+        "price": 600,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4676/7-1.png&w=240",
+        "code": "754",
+        "stock": 56,
+        "id": 4
+    },
+    {
+        "title": "Wire",
+        "description": "Wire Wakeboard es la oferta exclusiva de Slingshot para flotas de alquiler de parques de cable. Construido para durar y brindar una sensación más emocionante en el agua y los obstáculos para los nuevos ciclistas que están en el agua por primera vez. Con protectores y paredes laterales Singleshot Fusion Tip incorporados, el Wire está diseñado para resistir el abuso y el mal manejo comunes a la mayoría de las tablas de alquiler. Con tres tamaños para elegir (pequeño 141, mediano 145, grande 149) todos codificados por colores, el Wire es un diseño simple y atemporal que es fácil de usar para el personal del parque y cumple con los requisitos de tamaño de la mayoría de los usuarios.",
+        "price": 450,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4666/9-1.png&w=240",
+        "code": "863",
+        "stock": 63,
+        "id": 5
+    },
+    {
+        "title": "Copycat",
+        "description": "Con el respaldo del nuevo equipo más popular en wakeboard de cable para mujeres, el Copycat Pro está diseñado para ser el mejor tablero de parque para los ciclistas de cable más duros. Combinando todas las mejores características de tablas como Coalition y Valley, esta tabla es rápida y libre en el agua, con un patrón de flexión medio-suave destinado a brindar todas las sensaciones en los momentos adecuados. Las características sobresalientes incluyen una postura más estrecha y rieles de barbilla para que puedas sobre los montículos y los baches de todo tipo de terreno. El club Copycats es único y nos sentimos honrados de poder construir la tabla que permite a este equipo seguir superando los límites del wakeboard por cable.",
+        "price": 350,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4682/6-1.png&w=240",
+        "code": "173",
+        "stock": 20,
+        "id": 6
+    },
+    {
+        "title": "Native",
+        "description": "Inspirada en uno de los modelos insignia de Slingshot, la Native es una tabla cruzada TOTALMENTE NUEVA diseñada para dominar tanto el bote como el parque. Las sutiles puntas flexibles y un cóncavo elíptico exagerado brindan transiciones divertidas y flotantes de un borde a otro. En el parque, abarca superficies redondas y ayuda a los ciclistas a bloquearse para presiones más largas, al tiempo que ofrece más control y sensación. Si alguna vez fuiste fanático del modelo Recoil de los últimos años, es hora de sacar tu chequera y subirte a bordo de la última versión",
+        "price": 650,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4696/12-1.png&w=240",
+        "code": "666",
+        "stock": 10,
+        "id": 7
+    },
+    {
+        "title": "Nomad",
+        "description": "El Nomad es el padrino de la revolución de los tableros grandes. Construida como un modelo cruzado entre bote y cable, esta tabla es lo que llevó a Slingshot al descubrimiento de que las tablas más grandes traen más pop, aterrizajes más suaves, más estabilidad y, por supuesto, MÁS ESTILO en el agua. Con el área de superficie adicional, los ciclistas pueden planear a velocidades más lentas, andar con menos tensión en la línea y, a su vez, pasar más tiempo conduciendo con menos fatiga en el cuerpo. El Nomad tiene suficiente rigidez en el vientre para ofrecer un excelente pop detrás del bote, sin embargo, en las últimas temporadas también se ha convertido en un favorito del cable.",
+        "price": 200,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4697/13-1.png&w=240",
+        "code": "636",
+        "stock": 33,
+        "id": 8
+    },
+    {
+        "title": "Gram",
+        "description": "La técnica más importante para dominar a una edad temprana en wakeboard es EDGE CONTROL. El supergrom viene con características mínimas además de las aletas atornilladas de .5 pulgadas que ayudan a los jóvenes ciclistas a controlar sus bordes y aprender a usarlos correctamente desde el principio. La suave flexión del supergrom lo convierte en una maravilla para los ciclistas livianos en el agua y, por supuesto, en los rieles y la estela. La Super grom es la tabla que compras una vez y la obtienes desde el principio, lo que permite a los niños progresar hasta niveles de conducción avanzados sin tener que actualizar su tabla en el camino.",
+        "price": 330,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4718/1-1.png&w=240",
+        "code": "324",
+        "stock": 3,
+        "id": 9
+    },
+    {
+        "title": "Highline",
+        "description": "El Highline es una generación completamente nueva de placa de cable diseñada para brindar todas las emociones que espera de Slingshot a un precio más accesible. Esta tabla presenta un núcleo de madera simple que es vivo bajo los pies y fácil de manipular en los obstáculos, así como paredes laterales de fusión Singleshot, inserciones de lecho de roca de carbono y una nueva base de parque PBT para proteger el núcleo. El Highline tiene un diseño similar al modelo Windsor Pro, pero simplificado, para ofrecer un viaje rápido, divertido y con una sensación de libertad en los parques de cables de todo el mundo.",
+        "price": 423,
+        "thumbnail": "https://santatabla.com/shop/includes/process/timthumb.php?src=shop/img/post/4658/5-1.png&w=240",
+        "code": "200",
+        "stock": 68,
+        "id": 10
+    }
+]
