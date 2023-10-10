@@ -59,7 +59,7 @@ class CartManager {
     }
 }
 
-const cartManager = new CartManager('carts.json');
+const cartManager = new CartManager('carrito.json'); // Asegúrate de que el nombre sea correcto
 cartManager.loadCarts();
 
 export default cartManager;
