@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "id": 937,
+    "title": "Producto de Ejemplo",
+    "description": "Descripción del producto",
+    "code": "P1234",
+    "price": 19.99,
+    "status": true,
+    "stock": 100,
+    "category": "Electrónica",
+    "thumbnails": [
+      "ruta/imagen1.jpg",
+      "ruta/imagen2.jpg"
+    ]
+  },
+  {
+    "id": 220,
+    "title": "Producto de Ejemplo",
+    "description": "Descripción del producto",
+    "code": "P1234",
+    "price": 19.99,
+    "status": true,
+    "stock": 100,
+    "category": "Electrónica",
+    "thumbnails": [
+      "ruta/imagen1.jpg",
+      "ruta/imagen2.jpg"
+    ]
+  },
+  {
+    "id": 861,
+    "title": "Producto123 de Ejemplo",
+    "description": "casi del producto",
+    "code": "P1234",
+    "price": 50,
+    "status": true,
+    "stock": 110,
+    "category": "aja",
+    "thumbnails": [
+      "ruta/imagen1.jpg",
+      "ruta/imagen2.jpg"
+    ]
+  }
+]

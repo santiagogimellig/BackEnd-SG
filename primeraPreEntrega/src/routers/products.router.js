@@ -4,9 +4,14 @@ import fs from 'fs';
 const router = express.Router();
 const productosFilePath = 'productos.json';
 
+function generarNuevoId() {
+    return Math.floor(Math.random() * 1000); // Ejemplo de generación aleatoria
+}
+
 // Middleware para cargar los productos desde el archivo JSON
 router.use((req, res, next) => {
     const productos = JSON.parse(fs.readFileSync(productosFilePath, 'utf-8'));
+    console.log('Productos cargados:', productos);
     req.productos = productos;
     next();
 });
@@ -53,6 +58,7 @@ router.put('/:pid', (req, res) => {
 
 // Eliminar un producto por id
 router.delete('/:pid', (req, res) => {
+    console.log('ID del producto a eliminar:', req.params.pid);
     req.productos = req.productos.filter(p => p.id !== req.params.pid);
     fs.writeFileSync(productosFilePath, JSON.stringify(req.productos, null, 2));
     res.send('Producto eliminado');

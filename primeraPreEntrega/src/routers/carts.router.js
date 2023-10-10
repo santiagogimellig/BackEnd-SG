@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 
 const router = express.Router();
-const carritosFilePath = 'carrito.json';
+const carritosFilePath = 'carts.json';
 
 // Middleware para cargar los carritos desde el archivo JSON
 router.use((req, res, next) => {
