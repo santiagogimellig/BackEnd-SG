@@ -14,7 +14,7 @@ app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('main');
 });
 
 app.get('/realtimeproducts', (req, res) => {
