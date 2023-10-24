@@ -1,15 +1,18 @@
 import express from 'express';
-import handlebars from 'express-handlebars';
 import { fileURLToPath } from 'url';
 import path from 'path';
+import http from 'http';
+import { Server } from 'socket.io';
+import handlebars from 'handlebars';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-const PORT = 8080;
+const server = http.createServer(app);
+const io = new Server(server);
 
-app.engine('handlebars', handlebars.engine());
+app.engine('handlebars', handlebars.__express);
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -18,9 +21,31 @@ app.get('/', (req, res) => {
 });
 
 app.get('/realtimeproducts', (req, res) => {
-    res.render('realTimeProducts');
+    res.render('realTimeProducts', {
+        productos: getProductList()
+    });
 });
 
-app.listen(PORT, () => {
-    console.log(`Servidor corriendo en el puerto http://localhost:${PORT}`);
+io.on('connection', (socket) => {
+    console.log('Cliente conectado');
+
+    socket.on('addProduct', (product) => {
+        io.emit('updateProducts', getProductList());
+    });
+
+    socket.on('removeProduct', (productId) => {
+        io.emit('updateProducts', getProductList());
+    });
+});
+
+function getProductList() {
+    const productos = [
+        { name: 'Producto 1', price: 100 },
+        { name: 'Producto 2', price: 200 }
+    ];
+    return productos;
+}
+
+server.listen(8080, () => {
+    console.log(`Servidor corriendo en el puerto http://localhost:8080`);
 });
