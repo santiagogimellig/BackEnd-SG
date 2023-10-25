@@ -1,9 +1,13 @@
 import express from 'express';
 import fs from 'fs';
 
+// Creo un enrutador utilizando Express.
 const router = express.Router();
+
+// Especifico la ubicacion del archivo de productos.
 const productosFilePath = 'productos.json';
 
+// Funcion para generar un nuevo ID unico para un producto.
 function generarNuevoId(productos) {
     let id;
     do {
@@ -12,6 +16,7 @@ function generarNuevoId(productos) {
     return id;
 }
 
+// Middleware para cargar los productos desde el archivo antes de procesar las peticiones.
 router.use((req, res, next) => {
     const productos = JSON.parse(fs.readFileSync(productosFilePath, { encoding: 'utf-8' }));
     console.log('Productos cargados:', productos);
@@ -19,10 +24,12 @@ router.use((req, res, next) => {
     next();
 });
 
+// Ruta para obtener todos los productos.
 router.get('/', (req, res) => {
     res.json(req.productos);
 });
 
+// Ruta para obtener un producto por su ID.
 router.get('/:pid', (req, res) => {
     const producto = req.productos.find(p => p.id === req.params.pid);
     if (producto) {
@@ -32,6 +39,7 @@ router.get('/:pid', (req, res) => {
     }
 });
 
+// Ruta para agregar un nuevo producto.
 router.post('/', (req, res) => {
     const nuevoProducto = {
         id: generarNuevoId(req.productos),
@@ -44,6 +52,7 @@ router.post('/', (req, res) => {
     res.json(nuevoProducto);
 });
 
+// Ruta para actualizar un producto por su ID.
 router.put('/:pid', (req, res) => {
     const productoIndex = req.productos.findIndex(p => p.id === req.params.pid);
     if (productoIndex !== -1) {
@@ -55,6 +64,7 @@ router.put('/:pid', (req, res) => {
     }
 });
 
+// Ruta para eliminar un producto por su ID.
 router.delete('/:pid', (req, res) => {
     try {
         console.log('ID del producto a eliminar:', req.params.pid);

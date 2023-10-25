@@ -7,27 +7,34 @@
 </head>
 <body>
     <h1>Listado de Productos en Tiempo Real</h1>
+
+    <!-- Lista de Productos -->
     <ul id="realTimeProductList">
         {{#each productos}}
             <li>{{this.name}} - Precio: {{this.price}}</li>
         {{/each}}
     </ul>
 
+    <!-- Formulario para Agregar Producto -->
     <form id="addProductForm">
         <input type="text" id="productName" placeholder="Nombre del producto">
         <input type="number" id="productPrice" placeholder="Precio del producto">
         <button type="submit">Agregar Producto</button>
     </form>
 
+    <!-- Formulario para Eliminar Producto -->
     <form id="removeProductForm">
         <input type="text" id="productId" placeholder="ID del producto a eliminar">
         <button type="submit">Eliminar Producto</button>
     </form>
 
+    <!-- Script para cargar Socket.IO -->
     <script src="/socket.io/socket.io.js"></script>
     <script>
+        // Creo una instancia de Socket.IO para establecer la conexion con el servidor.
         const socket = io();
 
+        // Escuchar el evento 'updateProducts' enviado por el servidor y actualizar la lista de productos.
         socket.on('updateProducts', (productos) => {
             const realTimeProductList = document.getElementById('realTimeProductList');
             realTimeProductList.innerHTML = '';
@@ -38,19 +45,23 @@
             });
         });
 
+        // Manejo el envio del formulario para agregar producto.
         const addProductForm = document.getElementById('addProductForm');
         addProductForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const productName = document.getElementById('productName').value;
             const productPrice = document.getElementById('productPrice').value;
+            // Emito un evento 'addProduct' al servidor con los detalles del producto.
             socket.emit('addProduct', { name: productName, price: productPrice });
             addProductForm.reset();
         });
 
+        // Manejo el envio del formulario para eliminar producto.
         const removeProductForm = document.getElementById('removeProductForm');
         removeProductForm.addEventListener('submit', (event) => {
             event.preventDefault();
             const productId = document.getElementById('productId').value;
+            // Emito un evento 'removeProduct' al servidor con el ID del producto a eliminar
             socket.emit('removeProduct', productId);
             removeProductForm.reset();
         });
