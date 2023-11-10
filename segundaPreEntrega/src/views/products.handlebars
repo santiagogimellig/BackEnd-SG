@@ -1,0 +1,24 @@
+<h2>Todos los Productos</h2>
+<ul>
+    {{#each products}}
+        <li>
+            {{this.name}} - Precio: ${{this.price}} 
+            <button onclick="addToCart('{{this._id}}')">Agregar al Carrito</button>
+        </li>
+    {{/each}}
+</ul>
+
+{{#if hasNextPage}}
+    <a href="{{nextLink}}">Siguiente</a>
+{{/if}}
+
+{{#if hasPrevPage}}
+    <a href="{{prevLink}}">Anterior</a>
+{{/if}}
+
+<script>
+    function addToCart(productId) {
+        // Lógica para agregar producto al carrito
+    }
+</script>
+
