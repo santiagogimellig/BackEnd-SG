@@ -54,7 +54,6 @@ router.delete("/carts/:cid", async (req, res) => {
     }
 });
 
-// Implementar lógica para eliminar producto del carrito
 router.delete("/carts/:cid/products/:pid", async (req, res) => {
     try {
         const cartId = req.params.cid;
@@ -73,7 +72,6 @@ router.delete("/carts/:cid/products/:pid", async (req, res) => {
     }
 });
 
-// Implementar lógica para actualizar el carrito con un arreglo de productos
 router.put("/carts/:cid", async (req, res) => {
     try {
         const cartId = req.params.cid;
@@ -92,7 +90,6 @@ router.put("/carts/:cid", async (req, res) => {
     }
 });
 
-// Implementar lógica para actualizar la cantidad de ejemplares del producto en el carrito
 router.put("/carts/:cid/products/:pid", async (req, res) => {
     try {
         const cartId = req.params.cid;
