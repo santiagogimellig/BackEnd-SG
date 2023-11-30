@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+</head>
+
+<body>
+    <div class="registro-container">
+        <form id="registroForm" class="formulario">
+            <h1 class="titulo">Registro</h1>
+            <p class="mensaje">Regístrate en nuestro sistema para obtener acceso</p>
+
+            <div class="campo">
+                <label>
+                    <input name="nombre" required="" type="text" class="entrada" placeholder="Nombre">
+                </label>
+
+                <label>
+                    <input name="apellido" required="" type="text" class="entrada" placeholder="Apellido">
+                </label>
+            </div>
+
+            <label>
+                <input name="edad" required="" type="number" class="entrada" placeholder="Edad">
+            </label>
+
+            <label>
+                <input name="email" required="" type="email" class="entrada" placeholder="Correo Electrónico">
+            </label>
+
+            <label>
+                <input name="password" type="password" class="entrada" placeholder="Contraseña">
+            </label>
+
+            <button class="boton-registro" type="submit">Registrarse</button>
+
+            <p class="iniciar-sesion">¿Ya tienes una cuenta? <a href="/login">Iniciar Sesión</a></p>
+        </form>
+    </div>
+</body>
+
+</html>

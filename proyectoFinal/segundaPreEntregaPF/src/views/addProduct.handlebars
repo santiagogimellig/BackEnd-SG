@@ -1,0 +1,18 @@
+<div>
+    <h1>Formulario de productos</h1>
+    <form action="/api/products" method="post">
+        <label for="title">Título del producto:</label><br />
+        <input type="text" id="title" name="title" /><br />
+        <label for="description">Descripción:</label><br />
+        <textarea id="description" name="description"></textarea><br />
+        <label for="price">Precio:</label><br />
+        <input type="number" id="price" name="price" /><br />
+        <label for="thumbnail">URL de la imagen:</label><br />
+        <input type="url" id="thumbnail" name="thumbnail" /><br />
+        <label for="code">Código:</label><br />
+        <input type="number" id="code" name="code" /><br />
+        <label for="stock">Cantidad en stock:</label><br />
+        <input type="number" id="stock" name="stock" /><br />
+        <input type="submit" value="Enviar" />
+    </form>
+</div>

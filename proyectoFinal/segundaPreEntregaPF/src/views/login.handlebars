@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha384-yVbT0UKK3FXWxFhXgcfy2NzCGti2VME1fjTcr5eVy0sRVRLMZUn4U1rwE5HAAw1r" crossorigin="anonymous">
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="container-fluid d-flex align-items-center justify-content-center min-vh-100">
+        <div class="form-container">
+            <p class="title">Iniciar sesion</p>
+            <form id="loginForm" class="form">
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" id="email" placeholder="Enter your email" />
+                </div>
+                <div class="input-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" name="password" id="password" placeholder="Enter your password" />
+                    <div class="forgot">
+                        <a rel="noopener noreferrer" href="#">¿Olvidaste tu contraseña?</a>
+                    </div>
+                </div>
+                <button class="sign">Ingresar</button>
+                <p class="error-message" id="errorMessage"></p>
+            </form>
+            <div class="social-message">
+                <div class="line"></div>
+                <p class="message">Ingresa con:</p>
+                <div class="line"></div>
+            </div>
+            <a href="/github">
+                <button aria-label="Log in with GitHub" class="custom-icon">
+                    <i class="fab fa-github"></i>
+                </button>
+            </a>
+            <p class="signup">¿Aún no estás registrado?
+                <a rel="noopener noreferrer" href="/register" class="">Sign up</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

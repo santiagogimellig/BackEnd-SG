@@ -2,13 +2,15 @@
   "name": "segundapreentregapf",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/server.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Santiago Gimelli",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "connect-mongo": "^5.1.0",
