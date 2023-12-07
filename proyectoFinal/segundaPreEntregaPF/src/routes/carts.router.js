@@ -40,7 +40,7 @@ router.post('/:cid/product/:pid', async (req, res) => {
     try {
         const cartId = req.params.cid;
         const productId = req.params.pid;
-        const product = await ProductManager.getById(productId);
+        const product = await ProductManager.getProductById(productId);
         const cart = await CartManager.getById(cartId);
         await CartManager.addToCart(cart._id, product._id);
         res.send({ estado: 'success', mensaje: 'Producto agregado al carrito' });
@@ -55,7 +55,7 @@ router.put('/:cid/product/:pid', async (req, res) => {
         const { quantity } = req.body;
         const cartId = req.params.cid;
         const productId = req.params.pid;
-        const product = await ProductManager.getById(productId);
+        const product = await ProductManager.getProductById(productId);
         const cart = await CartManager.getById(cartId);
         if (!product || !cart || !quantity) {
             res.status(400).send({ estado: 'error', mensaje: 'Solicitud incorrecta o entrada no válida' });

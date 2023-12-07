@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
             page: page,
             limit: limit
         }
-        const products = await ProductManager.get(query, options);
+        const products = await ProductManager.getProducts(query, options);
         res.send({ status: 'success', products });
     } catch (error) {
         console.error(error);
@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:pid', async (req, res) => {
     const productId = req.params.pid;
-    const product = await ProductManager.getById(productId);
+    const product = await ProductManager.getProductById(productId);
     product ? res.send({ status: 'success', payload: product }) : res.send({ error: 'Producto no encontrado' });
 })
 
@@ -38,9 +38,9 @@ router.post('/', async (req, res) => {
         ) {
             return res.status(400).send({ status: 'error', error: 'Valores incompletos o incorrectos' })
         }
-        const result = await ProductManager.add(product);
+        const result = await ProductManager.updateProductById(product);
         const io = req.app.get('socketio');
-        io.emit('actualizarProductos', await ProductManager.getAll());
+        io.emit('actualizarProductos', await ProductManager.getProducts());
         res.send({ status: 'success', payload: result })
     } catch (error) {
         console.error(error);
@@ -51,13 +51,13 @@ router.post('/', async (req, res) => {
 router.put('/:pid', async (req, res) => {
     const product = req.body;
     const productId = req.params.pid;
-    const result = await ProductManager.update(productId, product)
+    const result = await ProductManager.updateProductById(productId, product)
     result ? res.send({ status: 'success', payload: result }) : res.status(400).send({ status: 'error', error: 'No se puede actualizar' });
 })
 
 router.delete('/:pid', async (req, res) => {
     const productId = req.params.pid;
-    const result = await ProductManager.delete(productId)
+    const result = await ProductManager.deleteProductById(productId)
     if (result != null) {
         const io = req.app.get('socketio');
         res.send({ status: 'Success', message: 'Eliminado exitosamente' })
