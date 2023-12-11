@@ -25,28 +25,12 @@ router.get('/:pid', async (req, res) => {
     product ? res.send({ status: 'success', payload: product }) : res.send({ error: 'Producto no encontrado' });
 })
 
-router.post('/', async (req, res) => {
-    try {
-        const product = req.body;
-        if (
-            !product.title ||
-            !product.description ||
-            !product.price ||
-            !product.code ||
-            !product.stock ||
-            !product.category
-        ) {
-            return res.status(400).send({ status: 'error', error: 'Valores incompletos o incorrectos' })
-        }
-        const result = await ProductManager.updateProductById(product);
-        const io = req.app.get('socketio');
-        io.emit('actualizarProductos', await ProductManager.getProducts());
-        res.send({ status: 'success', payload: result })
-    } catch (error) {
-        console.error(error);
-        res.status(500).send({ status: 'error', error });
-    }
-})
+
+router.post("/", async (req, res) => {
+    const { body } = req;
+    const newProduct = await ProductManager.createProduct(body);
+    res.status(201).json(newProduct);
+});
 
 router.put('/:pid', async (req, res) => {
     const product = req.body;

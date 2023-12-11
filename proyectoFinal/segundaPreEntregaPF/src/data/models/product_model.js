@@ -35,8 +35,7 @@ const productSchema = new mongoose.Schema({
     category: {
         type: String,
         index: true,
-        required: true,
-        enum: ["cable", "lancha", "hibrida", "wind"]
+        required: true
     }
 }, { timestamps: true });
 
