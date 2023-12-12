@@ -7,26 +7,106 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
         integrity="sha384-yVbT0UKK3FXWxFhXgcfy2NzCGti2VME1fjTcr5eVy0sRVRLMZUn4U1rwE5HAAw1r" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyQq5STw29n4p1C3G5STScUoH3p5G" crossorigin="anonymous">
     <title>Login</title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .forgot {
+            margin-top: 5px;
+        }
+
+        .sign {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .error-message {
+            color: red;
+            margin-top: 10px;
+        }
+
+        .social-message {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .line {
+            flex-grow: 1;
+            height: 1px;
+            background-color: #ccc;
+        }
+
+        .message {
+            margin: 0 15px;
+            color: #888;
+        }
+
+        .custom-icon {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .signup {
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
 </head>
 
 <body>
     <div class="container-fluid d-flex align-items-center justify-content-center min-vh-100">
-        <div class="form-container">
-            <p class="title">Iniciar sesion</p>
+        <div class="col-md-6 form-container">
+            <p class="title">Iniciar sesión</p>
             <form id="loginForm" class="form">
-                <div class="input-group">
+                <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="text" name="email" id="email" placeholder="Enter your email" />
+                    <input type="text" class="form-control" name="email" id="email" placeholder="Enter your email" />
                 </div>
-                <div class="input-group">
+                <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" name="password" id="password" placeholder="Enter your password" />
+                    <input type="password" class="form-control" name="password" id="password"
+                        placeholder="Enter your password" />
                     <div class="forgot">
-                        <a rel="noopener noreferrer" href="#">¿Olvidaste tu contraseña?</a>
+                        <a href="#">¿Olvidaste tu contraseña?</a>
                     </div>
                 </div>
-                <button class="sign">Ingresar</button>
+                <button class="btn btn-primary sign">Ingresar</button>
                 <p class="error-message" id="errorMessage"></p>
             </form>
             <div class="social-message">
@@ -35,15 +115,22 @@
                 <div class="line"></div>
             </div>
             <a href="/github">
-                <button aria-label="Log in with GitHub" class="custom-icon">
+                <button aria-label="Log in with GitHub" class="btn btn-dark custom-icon">
                     <i class="fab fa-github"></i>
                 </button>
             </a>
             <p class="signup">¿Aún no estás registrado?
-                <a rel="noopener noreferrer" href="/register" class="">Sign up</a>
+                <a href="/register" class="">Sign up</a>
             </p>
         </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-fz4eBL3pkeVo1fEU5zleFWYHPfWnt4Y3EszX37YefWZGpfe+/qDkWqZ2Fmi2srY" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyQq5STw29n4p1C3G5STScUoH3p5G" crossorigin="anonymous"></script>
 </body>
 
 </html>
