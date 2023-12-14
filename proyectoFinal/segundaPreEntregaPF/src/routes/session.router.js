@@ -13,7 +13,7 @@ router.post('/sessions/register', async (req, res) => {
 })
 
 router.post('/sessions/register', passport.authenticate('register', { failureRedirect: '/register' }), (req, res) => {
-    res.redirect('/');
+    res.redirect('/login');
 })
 
 router.post('/sessions/login', async (req, res) => {
@@ -56,7 +56,7 @@ router.post('/sessions/recovery-password', async (req, res) => {
         return res.status(401).send('Correo o contraseña invalidos.');
     }
     await userModel.updateOne({ email }, { $set: { password: createHash(newPassword) } });
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 router.get('/sessions/logout', (req, res) => {
