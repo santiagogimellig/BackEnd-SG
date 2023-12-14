@@ -5,47 +5,63 @@ import passport from "passport";
 
 const router = Router();
 
-router.post('/register', passport.authenticate('register', { failureRedirect: '/register' }), (req, res) => {
+router.post('/sessions/register', async (req, res) => {
+    const { body } = req
+    const newUser = await userModel.create({ ...body, password: createHash(body.password) })
+    console.log('newUser', newUser);
     res.redirect('/login');
-});
+})
 
-router.post('/login', passport.authenticate('login', { failureRedirect: '/login' }), (req, res) => {
-    req.session.user = req.user;
-    res.redirect('/home');
-});
+router.post('/sessions/register', passport.authenticate('register', { failureRedirect: '/register' }), (req, res) => {
+    res.redirect('/');
+})
 
-router.post('/recovery-password', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-        const userExists = await userModel.findOne({ email });
-
-        if (!userExists) {
-            return res.status(401).send({ status: 'error', error: 'El usuario o la contraseña proporcionados son incorrectos.' });
-        }
-
-        await userModel.updateOne({ email }, { $set: { password: createHash(password) } });
-        res.redirect('/login');
-    } catch (error) {
-        console.error(error);
-        return res.status(500).send({ status: 'error', error: 'Se produjo un error al restablecer la contraseña.' });
+router.post('/sessions/login', async (req, res) => {
+    const { body: { email, password } } = req;
+    const userAdmin = {
+        username: 'adminCoder@coder.com',
+        password: 'adminCod3r123',
+        rol: "admin"
+    };
+    if (email === userAdmin.username && password === userAdmin.password) {
+        req.session.user = { first_name: "Admin", last_name: "Coderhouse", email: userAdmin.username, rol: userAdmin.rol };
+        return res.redirect('/products');
     }
+    const user = await userModel.findOne({ email });
+    if (!user) {
+        return res.status(401).send('Correo o contraseña invalidos.');
+    }
+    const isValidPass = isValidPassword(password, user)
+    if (!isValidPass) {
+        return res.status(401).send('Correo o contraseña invalidos.');
+    }
+    const { first_name, last_name } = user;
+    req.session.user = { first_name, last_name, email };
+    res.redirect(`/products`);
 });
-
-router.get('/github', passport.authenticate('github', { scope: ['user:email'] }), async (req, res) => {
-    res.send({ status: 'success', message: 'Usuario registrado exitosamente.' });
-});
-
-router.get('/github-callback', passport.authenticate('github', { failureRedirect: '/login' }), async (req, res) => {
+router.post('/sessions/login', passport.authenticate('login', { failureRedirect: '/' }), (req, res) => {
     req.session.user = req.user;
-    res.redirect('/home');
+    res.redirect('/products');
+});
+router.get('/sessions/github', passport.authenticate('github', { scope: ['user:email'] }))
+router.get('/sessions/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
+    req.session.user = req.user;
+    res.redirect('/products');
+})
+
+router.post('/sessions/recovery-password', async (req, res) => {
+    const { email, newPassword } = req.body;
+    const userExists = await userModel.findOne({ email });
+    if (!userExists) {
+        return res.status(401).send('Correo o contraseña invalidos.');
+    }
+    await userModel.updateOne({ email }, { $set: { password: createHash(newPassword) } });
+    res.redirect('/');
 });
 
-router.get('/logout', (req, res) => {
-    req.session.destroy(error => {
-        if (error) {
-            return res.status(500).send({ status: 'error', error: 'Error al cerrar sesión.' });
-        }
-        res.redirect('/home');
+router.get('/sessions/logout', (req, res) => {
+    req.session.destroy((error) => {
+        res.redirect('/');
     });
 });
 
