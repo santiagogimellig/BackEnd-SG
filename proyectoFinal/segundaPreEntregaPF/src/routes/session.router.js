@@ -12,7 +12,7 @@ router.get('/sessions/logout', (req, res) => {
 });
 
 router.get('/sessions/github', passport.authenticate('github', { scope: ['user:email'] }))
-router.get('/sessions/github/callback', passport.authenticate('github', { failureRedirect: '/' }), (req, res) => {
+router.get('/sessions/github/callback', passport.authenticate('github', { failureRedirect: '/login' }), (req, res) => {
     req.session.user = req.user;
     res.redirect('/products');
 })
@@ -53,7 +53,7 @@ router.post('/sessions/login', async (req, res) => {
     res.redirect(`/products`);
 });
 
-router.post('/sessions/login', passport.authenticate('login', { failureRedirect: '/' }), (req, res) => {
+router.post('/sessions/login', passport.authenticate('login', { failureRedirect: '/login' }), (req, res) => {
     req.session.user = req.user;
     res.redirect('/products');
 });
