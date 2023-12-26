@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Chat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .container {
+            margin-top: 50px; 
+        }
+
+        h1 {
+            color: #007bff; 
+        }
+
+        .form-group {
+            margin-bottom: 20px; 
+        }
+
+        .form-control {
+            width: 100%; 
+        }
+
+        .message-logs {
+            border: 1px solid #dee2e6; 
+            padding: 10px; 
+            margin-top: 20px; 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Bienvenido al Chat!</h1>
+        <div class="form-group">
+            <input id="chatBox" class="form-control" placeholder="Type your message" />
+        </div>
+        <div class="message-logs">
+            <div id="messageLogs"></div>
+        </div>
+    </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/socket.io/socket.io.js"></script>
+</body>
+
+</html>

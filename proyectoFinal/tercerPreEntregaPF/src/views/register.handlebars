@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/css/bootstrap.min.css"
+        integrity="sha384-rGgo9hFqN02lOW+eP8A6/zvXW6C5l7dKG5eW8TcPP1FszcXvvA65z82p1Q5e76bC" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .registro-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .formulario {
+            background-color: #ffffff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+        }
+
+        .titulo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .mensaje {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        .entrada {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        .boton-registro {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .iniciar-sesion {
+            margin-top: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="registro-container">
+        <form id="registroForm" class="formulario">
+            <h1 class="titulo">Registro</h1>
+            <p class="mensaje">Regístrate en nuestro sistema para obtener acceso</p>
+
+            <div class="campo">
+                <label>
+                    <input name="nombre" required="" type="text" class="form-control entrada" placeholder="Nombre">
+                </label>
+            </div>
+
+            <div class="campo">
+                <label>
+                    <input name="apellido" required="" type="text" class="form-control entrada" placeholder="Apellido">
+                </label>
+            </div>
+
+            <div class="campo">
+                <label>
+                    <input name="edad" required="" type="number" class="form-control entrada" placeholder="Edad">
+                </label>
+            </div>
+
+            <div class="campo">
+                <label>
+                    <input name="email" required="" type="email" class="form-control entrada" placeholder="Correo Electrónico">
+                </label>
+            </div>
+
+            <div class="campo">
+                <label>
+                    <input name="password" required="" type="text" type="password" class="form-control entrada" placeholder="Contraseña">
+                </label>
+            </div>
+
+            <button class="btn btn-primary boton-registro" type="submit"> Registrarse </button>
+
+            <p class="iniciar-sesion">¿Ya tienes una cuenta? <a href="/">Iniciar Sesión</a></p>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+        integrity="sha384-fz4eBL3pkeVo1fEU5zleFWYHPfWnt4Y3EszX37YefWZGpfe+/qDkWqZ2Fmi2srY" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.6.0/js/bootstrap.min.js"
+        integrity="sha384-Zt8TDeFX3sFSK+lh5JfQ6LGRj4uSjq5LVJ3i8XsF/5iqmG1fFaw/wnfG+1dMU7bH" crossorigin="anonymous"></script>
+</body>
+
+</html>

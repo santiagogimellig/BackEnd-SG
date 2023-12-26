@@ -1,0 +1,54 @@
+[
+	{
+		"id": "erfrefrere9",
+		"title": "coalition",
+		"description": "Coalition es el estándar de oro del wakeboard por cable",
+		"price": 200,
+		"thumbnails": [
+			"https://www.santatabla.com/shop/img/post/4670/11-1.png"
+		],
+		"code": "001",
+		"stock": 5,
+		"status": true,
+		"category": "parque"
+	},
+	{
+		"id": "grtlrtmgprmtg6",
+		"title": "native",
+		"description": "Native es una tabla cruzada TOTALMENTE NUEVA diseñada para dominar la lancha",
+		"price": 400,
+		"thumbnails": [
+			"https://www.santatabla.com/shop/img/post/4696/12-1.png"
+		],
+		"code": "002",
+		"stock": 10,
+		"status": true,
+		"category": "lancha"
+	},
+	{
+		"id": "vbdfbgffgf2",
+		"title": "windsor",
+		"description": "Windsor se basa en una de las tablas hibridas más populares, sirve tanto para lancha como para parque",
+		"price": 500,
+		"thumbnails": [
+			"https://www.santatabla.com/shop/img/post/4724/5-1.png"
+		],
+		"code": "003",
+		"stock": 3,
+		"status": true,
+		"category": "hibrida"
+	},
+	{
+		"id": "plmanrfvekñneñovpnfre9",
+		"title": "salmon",
+		"description": "Salmon es una edición especial de las tablas wind",
+		"price": 300,
+		"thumbnails": [
+			"https://www.santatabla.com/shop/img/post/4708/14-1.png"
+		],
+		"code": "004",
+		"stock": 7,
+		"status": true,
+		"category": "wind"
+	}
+]
