@@ -50,11 +50,11 @@ router.post('/auth/login', async (req, res) => {
     const user = await UserModel.findOne({ email });
     const cart = await CartManager.getOrCreateCart(user._id);
     if (!user) {
-        return res.status(401).json({ message: 'Correo o contraseña invaldos' });
+        return res.status(401).json({ message: 'Correo o contraseña invalidos' });
     }
     const isValidPassword = isPasswordValid(password, user);
     if (!isValidPassword) {
-        return res.status(401).json({ message: 'Correo o contraseña invaldos' });
+        return res.status(401).json({ message: 'Correo o contraseña invalidos' });
     }
     const token = tokenGenerator(user, cart._id);
     res
@@ -71,6 +71,5 @@ router.post('/auth/recovery-password', async (req, res) => {
     await UserModel.updateOne({ email }, { $set: { password: createHash(newPassword) } });
     res.redirect('/login');
 });
-
 
 export default router;

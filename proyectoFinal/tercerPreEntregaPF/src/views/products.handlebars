@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+WyQq5STw29n4p1C3G5STScUoH3p5G" crossorigin="anonymous">
+    <title>Products</title>
+    <style>
+        body {
+            background-color: #e6f7ff;
+            color: #004080;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        header {
+            background-color: #cce5ff;
+            padding: 20px;
+            border-radius: 8px;
+        }
+
+        h1 {
+            color: #004080;
+        }
+
+        h2 {
+            color: #007bff;
+            font-size: 1.5rem;
+        }
+
+        .cart {
+            background-color: #b3d9ff;
+            border-radius: 8px;
+            padding: 10px;
+        }
+
+        .modal-content {
+            background-color: #f0f8ff;
+        }
+
+        .card {
+            max-width: 20rem;
+            margin: 0 4px 16px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+        }
+
+        .card-header {
+            background-color: #007bff;
+            color: #ffffff;
+        }
+
+        .card-body {
+            background-color: #cce5ff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #ffffff;
+            border: 1px solid #0056b3;
+        }
+
+        .btn-info {
+            background-color: #33adff;
+            color: #ffffff;
+            border: 1px solid #007bb5;
+        }
+
+        .btn-primary:hover,
+        .btn-info:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: #e6f7ff;
+            color: #004080;
+            border: 1px solid #007bff;
+        }
+
+        .btn-secondary:hover {
+            background-color: #cce5ff;
+        }
+
+        .btn-dark {
+            background-color: #004080;
+            color: #ffffff;
+            border: 1px solid #002b4d;
+        }
+
+        .btn-dark:hover {
+            background-color: #002b4d;
+        }
+
+        .page-buttons {
+            background-color: #cce5ff;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        .page-buttons a {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-column flex-md-row justify-content-between align-items-center">
+            <div class="title text-center text-md-start">
+                <h1>Products</h1>
+            </div>
+            <div class="m-auto">
+                <h2>Bienvenido: {{user.name}} ({{user.role}})</h2>
+            </div>
+            <div class="cart d-flex flex-column flex-md-row p-0 mt-2 mt-md-0 gap-4 text-center">
+                <img src="./img/cart.svg" alt="cart" class="img-fluid m-auto m-md-0">
+                <button type="button" class="btn btn-primary m-auto m-md-0" data-bs-toggle="modal"
+                    data-bs-target="#modalCart">
+                    View Cart
+                </button>
+                <button type="button" class="btn btn-info m-auto m-md-0" id="cartFinal">
+                    Buy Cart
+                </button>
+                <div class="modal fade" id="modalCart" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Cart</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body" id="modalBody">
+
+                            </div>
+                            <div class="modal-footer">
+                                <div data-bs-dismiss="modal" id="modalFooter"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="row mt-4">
+            {{#each products }}
+            <div class="card mb-3 mx-4 my-4">
+                <div class="card-header">code: {{this.code}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">{{this.title}}</h4>
+                    <p class="card-text">
+                        <li>
+                            description: {{this.description}}
+                        </li>
+                        <li>
+                            price: ${{this.price}}
+                        </li>
+                        <li>
+                            category: {{this.category}}
+                        </li>
+                        <li>
+                            status: {{this.status}}
+                        </li>
+                        <li>
+                            stock: {{this.stock}}
+                        </li>
+                        <li>
+                            thumbnail: <img {{this.thumbnails}} alt="" width="120" height="80">
+                        </li>
+                    </p>
+                    <a class="btn btn-success text-lg product" id="{{this._id}}" data-value="{{this.stock}}">Agregar a
+                        carrito</a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+        <div class="container d-flex justify-content-center align-items-center gap-4 p-4 page-buttons">
+            {{#if hasPrevPage}}
+            <a class="btn btn-secondary" href="{{prevLink}}">prev</a>
+            {{/if}}
+
+            {{#if hasNextPage}}
+            <a class="btn btn-secondary" href="{{nextLink}}">next</a>
+            <h3 class="text-info">Page: {{page}}/{{totalPages}}</h3>
+            {{/if}}
+        </div>
+    </div>
+</body>
+
+</html>

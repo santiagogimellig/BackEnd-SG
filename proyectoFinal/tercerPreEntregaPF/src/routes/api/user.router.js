@@ -72,7 +72,7 @@ router.put('/users/:uid',
             return res.status(404).json({ message: `No se encontró el usuario ${uid}` });
         }
         await UserModel.updateOne({ _id: uid }, { $set: data });
-        res.status(200).json({ message: 'Usuario actualizado con éxito' });
+        res.status(200).json({ message: 'Usuario actualizado correctamente' });
     });
 
 router.delete('/users/:uid',
@@ -85,7 +85,7 @@ router.delete('/users/:uid',
             return res.status(404).json({ message: `No se encontró el usuario ${uid}` });
         }
         await UserModel.deleteOne({ _id: uid });
-        res.status(200).json({ message: 'Usuario eliminado con éxito' });
+        res.status(200).json({ message: 'Usuario eliminado correctamente' });
     });
 
 export default router;

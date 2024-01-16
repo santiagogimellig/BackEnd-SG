@@ -32,7 +32,7 @@ export default class ProductManager {
 
     static async createProduct(data) {
         const createdProduct = await ProductModel.create(data);
-        console.log('Producto creado exitosamente');
+        console.log('Producto creado correctamente');
         return createdProduct;
     }
 
@@ -52,24 +52,24 @@ export default class ProductManager {
         console.log('Producto eliminado correctamente');
     }
     static async addProduct(productData) {
-		try {
-			productData.category = productData.category.toLowerCase()
-			await ProductModel.create(productData)
-		}
-		catch (error) {
-			if (error.code === 11000) {
-				throw new Exception(`Product with code "${productData.code}" already exists. code must be unique`, 409)
-			}
-			throw new Exception("Product data is not valid", 400)
-		}
+        try {
+            productData.category = productData.category.toLowerCase()
+            await ProductModel.create(productData)
+        }
+        catch (error) {
+            if (error.code === 11000) {
+                throw new Exception(`El producto con el código "${productData.code}" ya existe. El código debe ser único.`, 409)
+            }
+            throw new Exception("Los datos del producto no son válidos.", 400)
+        }
     }
-    static async createProduct(product){
-        const { title, description, code, price, status, stock, category, thumbnails} = product;
+    static async createProduct(product) {
+        const { title, description, code, price, status, stock, category, thumbnails } = product;
 
         try {
             const newProduct = new ProductModel({ title, description, code, price, status, stock, category, thumbnails });
             const createdProduct = await newProduct.save();
-            console.log('Producto creado con éxito');
+            console.log('Producto creado correctamente');
             return createdProduct;
         } catch (error) {
             throw new Exception(`Error al crear el producto: ${error.message}`, 500);

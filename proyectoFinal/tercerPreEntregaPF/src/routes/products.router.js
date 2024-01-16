@@ -38,7 +38,7 @@ ProductRouter.post('/products', async (req, res) => {
     try {
         if (!(title && description && code && price
             && status && category)) {
-            return res.status(400).json({ error: `todos los campos son requeridos` })
+            return res.status(400).json({ error: `Todos los campos son requeridos` })
         }
         if (!(typeof title === 'string' && typeof description === 'string'
             && typeof code === 'string' && typeof price === 'number'
@@ -55,14 +55,14 @@ ProductRouter.post('/products', async (req, res) => {
             category,
             thumbnails
         }
-        let added = await productManager.addProduct(newProduct)
+        let added = await productManager.addNewProduct(newProduct)
         console.log(added);
         if (!added) {
             throw new Error(`El producto no se pudo agregar`)
         }
         else {
             socketServer.emit('messages', await productManager.getProduct())
-            return res.status(201).send('producto agregado', newProduct)
+            return res.status(201).send('Producto agregado', newProduct)
         }
     }
     catch (error) {
@@ -77,11 +77,11 @@ ProductRouter.put('/products/:productId', async (req, res) => {
         const update = req.body
         const productToUpdate = products.find(p => (productId === p.id))
         if (productToUpdate) {
-            await productManager.updateProduct(productId, update)
-            socketServer.emit('messages', await productManager.getProduct())
-            res.status(201).send({ message: `acutalizacion del producto de id ${productId}` })
+            await productManager.updateProductById(productId, update)
+            socketServer.emit('messages', await productManager.getProducts())
+            res.status(201).send({ message: `Acutalizacion del producto de id ${productId}` })
         } else {
-            res.status(400).send({ message: 'no se puedo actualizar el producto' })
+            res.status(400).send({ message: 'No se puedo actualizar el producto' })
         }
     }
     catch (error) {
@@ -93,11 +93,11 @@ ProductRouter.delete('/products/:productId', async (req, res) => {
         const { productId } = req.params
         const productToEliminate = products.find(p => (productId === p.id))
         if (productToEliminate) {
-            await productManager.deleteProduct(productId)
-            socketServer.emit('messages', await productManager.getProduct())
+            await productManager.deleteProductById(productId)
+            socketServer.emit('messages', await productManager.getProducts())
             res.status(201).send({ message: `Se elimino el producto de id ${productId}` })
         } else {
-            res.status(400).send({ message: 'no se puedo eliminar el producto' })
+            res.status(400).send({ message: 'No se puedo eliminar el producto' })
         }
 
     } catch (error) {

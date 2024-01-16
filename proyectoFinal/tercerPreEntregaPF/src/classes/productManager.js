@@ -23,9 +23,9 @@ export default class ProductHandler {
             if (this.isValidProduct(newProduct)) {
                 products.push(newProduct);
                 await fileSystem.writeFile(this.dataFilePath, JSON.stringify(products, null, 2));
-                console.log('Producto agregado exitosamente :)');
+                console.log('Producto agregado exitosamente.');
             } else {
-                console.log('No se pudo agregar el producto. Todos los campos son obligatorios; verificar los mismos.');
+                console.log('No se pudo agregar el producto. Todos los campos son obligatorios.');
             }
         } catch (error) {
             console.log(error);
@@ -46,14 +46,14 @@ export default class ProductHandler {
             const products = await this.getProducts();
             const productIndex = products.findIndex(p => p.id === productId);
             if (productIndex === -1) {
-                console.log(`No se encontró el producto con el ID ${productId}, no se actualiza.`);
+                console.log(`No se encontró el producto con el ID ${productId}.`);
                 return false;
             }
             const productToUpdate = products[productIndex];
             const updatedProduct = { ...productToUpdate, ...updatedProductData };
             products.splice(productIndex, 1, updatedProduct);
             await fileSystem.writeFile(this.dataFilePath, JSON.stringify(products, null, 2));
-            console.log(`Producto con ID ${productId} actualizado correctamente con nuevos valores.`);
+            console.log(`Producto con ID ${productId} actualizado correctamente.`);
             return true;
         } catch (error) {
             console.log(error);
@@ -65,7 +65,7 @@ export default class ProductHandler {
             const products = await this.getProducts();
             const productIndex = products.findIndex(p => p.id === productId);
             if (productIndex === -1) {
-                console.log('No se encontró el producto con el ID proporcionado, no se elimina.');
+                console.log('No se encontró el producto con el ID proporcionado.');
                 return false;
             }
             products.splice(productIndex, 1);

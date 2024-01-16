@@ -22,18 +22,18 @@ export default class CartManager {
     static async updateById(sid, data) {
         const cart = await CartModel.findById(sid);
         if (!cart) {
-            throw new Exception('No existe el carrito de compras', 404);
+            throw new Exception('No existe el carrito', 404);
         }
         const criteria = { _id: sid };
         const operation = { $set: data };
         await ProductModel.updateOne(criteria, operation);
-        console.log('Carro de compras actualizado correctamente');
+        console.log('Carrito actualizado correctamente');
     }
 
     static async deleteById(sid) {
         const cart = await CartModel.findById(sid);
         if (!cart) {
-            throw new Exception('No existe el carrito de compras', 404);
+            throw new Exception('No existe el carrito', 404);
         }
         const criteria = { _id: sid };
         await ProductModel.deleteOne(criteria);
@@ -50,7 +50,7 @@ export default class CartManager {
                 (product) => product.product._id.toString() === productId.toString()
             );
             if (existingProduct) {
-                console.log("entro a la validación, el producto existe")
+                console.log("Validación, el producto existe")
                 existingProduct.quantity += 1;
             } else {
                 const product = await ProductModel.findById(productId);
@@ -108,7 +108,7 @@ export default class CartManager {
         }
         product.quantity = quantity;
         await cart.save();
-        console.log('La cantidad del producto ha sido actualizada exitosamente');
+        console.log('La cantidad del producto ha sido actualizada correctamente');
         return cart;
     }
 
@@ -120,7 +120,7 @@ export default class CartManager {
         console.log(cart.products)
         cart.products = newProducts;
         await cart.save();
-        console.log('El carrito ha sido actualizado exitosamente');
+        console.log('El carrito ha sido actualizado correctamente');
         return cart;
     }
 }
