@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 20px;
+        }
+        .flex-container {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+    <title>Detalle del Carrito</title>
+</head>
+<body>
+
+<div class="flex-container">
+    <a href="/api/session/logout" class="btn btn-danger">Salir</a>
+</div>
+
+<div class="card">
+    <div class="card">
+        <h3>
+            Cart:
+        </h3>
+        <p><b>{{this.idCart}}</b></p>
+    </div>
+    <div class="card">
+        {{#each products}}
+        <div class="card">
+            <p><b>Product: </b>{{this.product.title}}</p>
+            <p><b>Description: </b>{{this.product.description}}</p>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

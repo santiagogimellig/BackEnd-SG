@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    </style>
+    <title>Bienvenido</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-end">
+        <a href="/api/session/logout" class="btn btn-danger mr-2">Salir</a>
+        <a href="/chat" class="btn btn-primary">Chat</a>
+    </div>
+
+    <div class="card mt-4">
+        <h1>¡Te damos la bienvenida!</h1>
+        <p>Usuario: <b>{{user.name}}</b></p>
+        <p>Email: <b>{{user.email}}</b></p>
+        <p>Edad: <b>{{user.age}}</b></p>
+        <p>Rol: <b>{{user.rol}}</b></p>
+    </div>
+
+    <div class="card">
+        <p>A continuación, los mejores productos:</p>
+        {{#each products}}
+        <div class="card">
+            <h3>{{this.title}}</h3>
+            <p><b>Description: </b>{{this.description}}</p>
+            <p><b>Price: </b>{{this.price}}</p>
+            <a href="/products/{{this._id}}">
+                <button class="btn btn-info">
+                    Ver detalle
+                </button>
+            </a>
+        </div>
+        {{/each}}
+
+        <div class="container mt-4">
+            {{#if hasPrevPage}}
+            <a href="/products?page={{prevPage}}" class="btn btn-secondary mr-2">Anterior</a>
+            {{/if}}
+            {{#if hasNextPage}}
+            <a href="/products?page={{nextPage}}" class="btn btn-secondary">Siguiente</a>
+            {{/if}}
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

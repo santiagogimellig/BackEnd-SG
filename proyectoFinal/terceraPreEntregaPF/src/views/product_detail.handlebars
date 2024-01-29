@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .card {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+    <title>Detalles del Producto</title>
+</head>
+<body>
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-end">
+        <a href="/api/session/logout" class="btn btn-danger">Salir</a>
+    </div>
+
+    <div class="card mt-4">
+        <div>
+            <h3>{{product.title}}</h3>
+            <p><b>Description: </b>{{product.description}}</p>
+            <p><b>Price: </b>{{product.price}}</p>
+            <p><b>Code: </b>{{product.code}}</p>
+            <p><b>Stock: </b>{{product.stock}}</p>
+            <p><b>Status: </b>{{product.status}}</p>
+            <p><b>Category: </b>{{product.category}}</p>
+            <input type="text" name="cartId" id="cartId" class="form-control" placeholder="Enter Cart Id">
+        </div>
+        <div>
+            <button class="btn btn-primary" onclick="addProduct('{{product._id}}')">
+                AddToCart
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>Active carts:</h3>
+        {{#each carts}}
+        <p> {{this._id}}</p>
+        {{/each}}
+    </div>
+</div>
+
+<script src="/js/product_detail.js" onload="checkScriptLoad()"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
