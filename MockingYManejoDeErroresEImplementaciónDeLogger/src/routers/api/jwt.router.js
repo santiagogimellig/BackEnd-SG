@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import UsersController from '../../controllers/users.controller.js';
 import AuthController from '../../controllers/auth.controller.js';
-import { userRepository } from '../../repositories/index.js';
+import { userRepository } from '../../respositories/index.js';
 import passport from 'passport';
 import { createHash, isValidPassword, jwtAuth, tokenGenerator, verifyToken, authMiddleware } from '../../helpers/utils.js';
 

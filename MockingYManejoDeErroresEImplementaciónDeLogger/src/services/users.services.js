@@ -1,5 +1,5 @@
 // Importar el repositorio de usuarios desde '../repositories/index.js'
-import { userRepository } from '../repositories/index.js'
+import { userRepository } from '../respositories/index.js'
 
 // Definir la clase UsersService
 export default class UsersService {
